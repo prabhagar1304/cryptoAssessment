@@ -1,0 +1,31 @@
+version: "3"
+services:
+  crypto-backend:
+    container_name: crypto-backend
+    build:
+      context: .
+      dockerfile: ./assessment/Dockerfile
+    restart: always
+    ports:
+      - "3002:3001"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: assessment
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27018:27017'
+
+  angular-ui:
+    build:
+      context: .
+      dockerfile: ./assessmentAngular/Dockerfile
+    ports:
+      - "4201:4201"
+    container_name: angular-ui

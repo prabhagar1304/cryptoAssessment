@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Symbol">
+    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <!-- slug Column -->
+  <ng-container matColumnDef="slug">
+    <th mat-header-cell *matHeaderCellDef> slug </th>
+    <td mat-cell *matCellDef="let element"> {{element.slug}} </td>
+  </ng-container>
+
+  <!-- num_market_pairs Column -->
+  <ng-container matColumnDef="num_market_pairs">
+    <th mat-header-cell *matHeaderCellDef> Number of MarketPairs </th>
+    <td mat-cell *matCellDef="let element"> {{element.num_market_pairs}} </td>
+  </ng-container>
+
+  <!-- max_supply Column -->
+  <ng-container matColumnDef="max_supply">
+    <th mat-header-cell *matHeaderCellDef> Max Supply </th>
+    <td mat-cell *matCellDef="let element"> {{element.max_supply}} </td>
+  </ng-container>
+
+  <!-- circulating_supply Column -->
+  <ng-container matColumnDef="circulating_supply">
+    <th mat-header-cell *matHeaderCellDef> circulating Supply </th>
+    <td mat-cell *matCellDef="let element"> {{element.circulating_supply}} </td>
+  </ng-container>
+
+  <!-- total_supply Column -->
+  <ng-container matColumnDef="total_supply">
+    <th mat-header-cell *matHeaderCellDef> Total Supply </th>
+    <td mat-cell *matCellDef="let element"> {{element.total_supply}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
